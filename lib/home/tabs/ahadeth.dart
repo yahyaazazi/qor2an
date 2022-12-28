@@ -16,6 +16,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
     if (Ahadeth.isEmpty) {
       loadHadethFie();
     }
+    // Ahadeth.isEmpty?loadHadethFie():
     return Column(
       children: [
         Image.asset('assets/images/hadeth_main_bg.png'),
@@ -39,7 +40,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
             : Expanded(
                 child: ListView.separated(
                     separatorBuilder: (_, index) => Divider(
-                      color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.primary,
                           indent: 30,
                           endIndent: 30,
                         ),
@@ -69,13 +70,8 @@ class _AhadethScreenState extends State<AhadethScreen> {
 
     for (int i = 0; i < Allahadeth.length; i++) {
       String hadeth = Allahadeth[i];
-      print(hadeth);
-      print('---------------------');
       List<String> HadethLines = hadeth.split('\n');
       String title = HadethLines[0];
-      print('===============');
-      print('------------$title---------');
-      print('=================');
       HadethLines.removeAt(0);
       HadethData hadethData = HadethData(title, HadethLines);
       Ahadeth.add(hadethData);
